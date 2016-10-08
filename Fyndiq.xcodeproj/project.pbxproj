@@ -14,6 +14,12 @@
 		D9B21C6B1DA92AFD00620953 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B21C691DA92AFD00620953 /* LaunchScreen.storyboard */; };
 		D9B21C761DA92AFD00620953 /* FyndiqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21C751DA92AFD00620953 /* FyndiqTests.swift */; };
 		D9B21C811DA92AFD00620953 /* FyndiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21C801DA92AFD00620953 /* FyndiqUITests.swift */; };
+		D9B21C921DA92B7000620953 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21C901DA92B7000620953 /* HomeTableViewController.swift */; };
+		D9B21C931DA92B7000620953 /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B21C911DA92B7000620953 /* HomeTableViewController.xib */; };
+		D9B21C971DA92BB500620953 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21C951DA92BB500620953 /* HomeTableViewCell.swift */; };
+		D9B21C981DA92BB500620953 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B21C961DA92BB500620953 /* HomeTableViewCell.xib */; };
+		D9B21C9B1DA92C3000620953 /* HomeAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9B21C9A1DA92C3000620953 /* HomeAssets.xcassets */; };
+		D9B21C9D1DA92E0F00620953 /* HomeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		D9B21C7C1DA92AFD00620953 /* FyndiqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FyndiqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9B21C801DA92AFD00620953 /* FyndiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FyndiqUITests.swift; sourceTree = "<group>"; };
 		D9B21C821DA92AFD00620953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9B21C901DA92B7000620953 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		D9B21C911DA92B7000620953 /* HomeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
+		D9B21C951DA92BB500620953 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		D9B21C961DA92BB500620953 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		D9B21C9A1DA92C3000620953 /* HomeAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomeAssets.xcassets; sourceTree = "<group>"; };
+		D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +115,9 @@
 				D9B21C671DA92AFD00620953 /* Assets.xcassets */,
 				D9B21C691DA92AFD00620953 /* LaunchScreen.storyboard */,
 				D9B21C6C1DA92AFD00620953 /* Info.plist */,
+				D9B21C991DA92C1D00620953 /* Assets */,
+				D9B21C8F1DA92B2500620953 /* Controller */,
+				D9B21C8E1DA92B0C00620953 /* Model */,
 			);
 			path = Fyndiq;
 			sourceTree = "<group>";
@@ -123,6 +138,41 @@
 				D9B21C821DA92AFD00620953 /* Info.plist */,
 			);
 			path = FyndiqUITests;
+			sourceTree = "<group>";
+		};
+		D9B21C8E1DA92B0C00620953 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D9B21C8F1DA92B2500620953 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D9B21C901DA92B7000620953 /* HomeTableViewController.swift */,
+				D9B21C911DA92B7000620953 /* HomeTableViewController.xib */,
+				D9B21C941DA92B9800620953 /* Cell */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D9B21C941DA92B9800620953 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D9B21C951DA92BB500620953 /* HomeTableViewCell.swift */,
+				D9B21C961DA92BB500620953 /* HomeTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D9B21C991DA92C1D00620953 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D9B21C9A1DA92C3000620953 /* HomeAssets.xcassets */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +279,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B21C931DA92B7000620953 /* HomeTableViewController.xib in Resources */,
+				D9B21C9B1DA92C3000620953 /* HomeAssets.xcassets in Resources */,
 				D9B21C6B1DA92AFD00620953 /* LaunchScreen.storyboard in Resources */,
 				D9B21C681DA92AFD00620953 /* Assets.xcassets in Resources */,
+				D9B21C981DA92BB500620953 /* HomeTableViewCell.xib in Resources */,
 				D9B21C661DA92AFD00620953 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B21C9D1DA92E0F00620953 /* HomeOperation.swift in Sources */,
+				D9B21C921DA92B7000620953 /* HomeTableViewController.swift in Sources */,
 				D9B21C631DA92AFD00620953 /* ViewController.swift in Sources */,
+				D9B21C971DA92BB500620953 /* HomeTableViewCell.swift in Sources */,
 				D9B21C611DA92AFD00620953 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
