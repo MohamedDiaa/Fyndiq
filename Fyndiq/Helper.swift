@@ -40,3 +40,15 @@ extension UIImage {
         })
     }
 }
+
+extension NSMutableURLRequest{
+    func setHttpHeader(header:[String:Any]){
+        
+        for key in header.keys{
+            if let body = header[key] as? String{
+                self.addValue(key, forHTTPHeaderField: body)
+            }
+        }
+    }
+    
+}

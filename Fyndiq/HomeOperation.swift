@@ -17,30 +17,13 @@ class HomeOperation {
         self.apiRequest = HomeRequest()
     }
 
-    func loadSavedFile()->[[String:AnyObject]]?{
-    
-        let path = NSBundle.mainBundle().pathForResource("fyndiq.json", ofType: nil) ?? ""
-        let loadedData = NSData(contentsOfFile: path)
-        do{
-            if let newLoadeddata = loadedData ,let json = try NSJSONSerialization.JSONObjectWithData(newLoadeddata, options: .AllowFragments) as? [[String:AnyObject]]{
-                
-                    return json
-                }
-            }
-        catch let error as NSError{
-            print(error)
-            }
-        
-        return nil
-    }
     
     func start(completion:([Product] -> Void)){
         
         let request = NSMutableURLRequest(URL: apiRequest.endPoint)
-        
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.HTTPMethod = "GET"
+        apiRequest.defaultHeader
+        request.setHttpHeader(apiRequest.defaultHeader)
+        request.HTTPMethod = apiRequest.method.rawValue
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         
@@ -67,7 +50,24 @@ class HomeOperation {
         task.resume()
         
     }
- 
+
+    func loadSavedFile()->[[String:AnyObject]]?{
+        
+        let path = NSBundle.mainBundle().pathForResource("fyndiq.json", ofType: nil) ?? ""
+        let loadedData = NSData(contentsOfFile: path)
+        do{
+            if let newLoadeddata = loadedData ,let json = try NSJSONSerialization.JSONObjectWithData(newLoadeddata, options: .AllowFragments) as? [[String:AnyObject]]{
+                
+                return json
+            }
+        }
+        catch let error as NSError{
+            print(error)
+        }
+        
+        return nil
+    }
+
     func parse(json:[[String:AnyObject]]) -> [Product]?{
     
     var productsList = [Product]()

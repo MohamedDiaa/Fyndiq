@@ -21,4 +21,14 @@ protocol APIRquest{
     var method:Method{get}
     
     var parameters:[String:Any]?{get}
+    
+    
+}
+
+extension APIRquest{
+    var defaultHeader:[String:Any]{
+        get{
+            return ["Content-Type" : "application/json; charset=utf-8"]
+        }
+    }
 }
