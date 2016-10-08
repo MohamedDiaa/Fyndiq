@@ -24,13 +24,22 @@ class HomeTableViewController: UITableViewController {
         self.tableView.registerNib(nib, forCellReuseIdentifier: "HomeTableViewCell")
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(spinner)
+        spinner.startAnimating()
+        let c1 = NSLayoutConstraint(item: spinner, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0)
+        let c2 = NSLayoutConstraint(item: spinner, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
+        self.view.addConstraints([c1,c2])
+        
         let homeOp = HomeOperation()
         homeOp.start { (products) in
-           
             self.products = products
             //self.tableView.reloadData()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                spinner.stopAnimating()
+
             })
         }
     }

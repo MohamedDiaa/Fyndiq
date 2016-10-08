@@ -29,6 +29,7 @@
 		D9B21CAF1DA9616F00620953 /* fyndiq.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B21CAE1DA9616F00620953 /* fyndiq.json */; };
 		D9B21CB11DA9676D00620953 /* Refrences.txt in Resources */ = {isa = PBXBuildFile; fileRef = D9B21CB01DA9676D00620953 /* Refrences.txt */; };
 		D9B21CB41DA96C8D00620953 /* LikeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21CB31DA96C8D00620953 /* LikeOperation.swift */; };
+		D9B21CB61DA973B900620953 /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21CB51DA973B900620953 /* HomeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		D9B21CAE1DA9616F00620953 /* fyndiq.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fyndiq.json; sourceTree = "<group>"; };
 		D9B21CB01DA9676D00620953 /* Refrences.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Refrences.txt; sourceTree = "<group>"; };
 		D9B21CB31DA96C8D00620953 /* LikeOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeOperation.swift; sourceTree = "<group>"; };
+		D9B21CB51DA973B900620953 /* HomeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				D9B21C751DA92AFD00620953 /* FyndiqTests.swift */,
 				D9B21C771DA92AFD00620953 /* Info.plist */,
+				D9B21CB51DA973B900620953 /* HomeTests.swift */,
 			);
 			path = FyndiqTests;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B21CB61DA973B900620953 /* HomeTests.swift in Sources */,
 				D9B21C761DA92AFD00620953 /* FyndiqTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
