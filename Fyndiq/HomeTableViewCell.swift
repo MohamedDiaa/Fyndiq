@@ -19,6 +19,14 @@ class HomeTableViewCell: UITableViewCell {
         didSet{
             if let p = self.product{
                 nameLabel.text = p.name
+                
+                // First of all remove the old image (required for images in cells)
+                productImgView.image = UIImage(named:"Loading")
+                
+                // Load image and apply to the view
+                UIImage.loadFromURL(p.image, callback: { (loadedImage: UIImage) -> () in
+                    self.productImgView.image = loadedImage
+                })
             }
             
         }

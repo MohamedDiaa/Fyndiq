@@ -34,7 +34,6 @@ class HomeOperation {
         return nil
     }
     
-    
     func start(completion:([Product] -> Void)){
         
         let request = NSMutableURLRequest(URL: apiRequest.endPoint)
@@ -69,9 +68,7 @@ class HomeOperation {
         
     }
  
-
-
-func parse(json:[[String:AnyObject]]) -> [Product]?{
+    func parse(json:[[String:AnyObject]]) -> [Product]?{
     
     var productsList = [Product]()
     for item in json{
