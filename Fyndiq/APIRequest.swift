@@ -16,11 +16,11 @@ protocol APIRquest{
     
     var endPoint:NSURL{get}
     
-    var headers:[String:Any]?{get}
+    var headers:[String:AnyObject]?{get}
     
     var method:Method{get}
     
-    var parameters:[String:Any]?{get}
+    var parameters:[String:AnyObject]?{get}
     
     
 }

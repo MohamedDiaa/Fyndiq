@@ -28,13 +28,13 @@ struct HomeRequest:APIRquest{
         }
     }
     
-    var headers: [String : Any]?{
+    var headers: [String : AnyObject]?{
         get{
             return nil
         }
     }
     
-    var parameters: [String : Any]?{
+    var parameters: [String : AnyObject]?{
         get{
             return nil
         }

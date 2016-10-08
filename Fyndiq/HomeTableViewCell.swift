@@ -27,8 +27,14 @@ class HomeTableViewCell: UITableViewCell {
                 UIImage.loadFromURL(p.image, callback: { (loadedImage: UIImage) -> () in
                     self.productImgView.image = loadedImage
                 })
+
+                switch(p.status){
+                case .liked:
+                    self.likeButton.setTitle("UnLike", forState: UIControlState.Normal)
+                case .none:
+                    self.likeButton.setTitle("Like", forState: UIControlState.Normal)
+                }
             }
-            
         }
     }
     
@@ -43,5 +49,34 @@ class HomeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func likePressed(sender:UIButton){
+        if let p = self.product{
+        
+            switch(p.status){
+            case .liked:
+                self.product?.status = .none
+                self.likeButton.setTitle("Like", forState: UIControlState.Normal)
+
+                let likeItem = LikeItem(product: p, status: .none)
+                self.startLikeOperation(likeItem)
+            
+            case .none:
+                self.product?.status = .liked
+                self.likeButton.setTitle("UnLike", forState: UIControlState.Normal)
+               
+                let likeItem = LikeItem(product: p, status: .none)
+                self.startLikeOperation(likeItem)
+            }
+        }
+    }
+    
+    func startLikeOperation(likeItem:LikeItem){
+        let likeOp = LikeOperation(likeItem: likeItem)
+        likeOp.start({ 
+            
+            }) { 
+                
+        }
+    }
     
 }

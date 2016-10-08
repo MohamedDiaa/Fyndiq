@@ -19,7 +19,12 @@ struct LikeRequest:APIRquest {
     
     var endPoint: NSURL{
         get{
-            return NSURL(string:"http://fyndswipenapi-­01.fyndiq.com/interview/products")!
+            
+            let s = "http://fyndswipenapi-­01.fyndiq.com/interview/products"
+            if let str = s.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLFragmentAllowedCharacterSet()),let url = NSURL(string:str){
+                return url
+            }
+            return NSURL(string: "http://Google.com")!
         }
     }
     
@@ -29,15 +34,20 @@ struct LikeRequest:APIRquest {
         }
     }
     
-    var headers: [String : Any]?{
+    var headers: [String : AnyObject]?{
         get{
             return nil
         }
     }
     
-    var parameters: [String : Any]?{
+    var parameters: [String : AnyObject]?{
         get{
-            return nil
+            switch(likeItem.status){
+            case .liked:
+                return ["id":likeItem.product.id,"like":true]
+            case .none:
+                return ["id":likeItem.product.id,"like":false]
+            }
         }
     }
 }
