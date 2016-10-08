@@ -20,6 +20,7 @@
 		D9B21C981DA92BB500620953 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9B21C961DA92BB500620953 /* HomeTableViewCell.xib */; };
 		D9B21C9B1DA92C3000620953 /* HomeAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9B21C9A1DA92C3000620953 /* HomeAssets.xcassets */; };
 		D9B21C9D1DA92E0F00620953 /* HomeOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */; };
+		D9B21CA01DA93A1100620953 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21C9F1DA93A1100620953 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		D9B21C961DA92BB500620953 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		D9B21C9A1DA92C3000620953 /* HomeAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomeAssets.xcassets; sourceTree = "<group>"; };
 		D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeOperation.swift; sourceTree = "<group>"; };
+		D9B21C9F1DA93A1100620953 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				D9B21C601DA92AFD00620953 /* AppDelegate.swift */,
+				D9B21C9F1DA93A1100620953 /* Helper.swift */,
 				D9B21C621DA92AFD00620953 /* ViewController.swift */,
 				D9B21C641DA92AFD00620953 /* Main.storyboard */,
 				D9B21C671DA92AFD00620953 /* Assets.xcassets */,
@@ -314,6 +317,7 @@
 				D9B21C631DA92AFD00620953 /* ViewController.swift in Sources */,
 				D9B21C971DA92BB500620953 /* HomeTableViewCell.swift in Sources */,
 				D9B21C611DA92AFD00620953 /* AppDelegate.swift in Sources */,
+				D9B21CA01DA93A1100620953 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

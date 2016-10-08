@@ -18,6 +18,10 @@ class HomeTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let nib = UINib(nibName: "HomeTableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "HomeTableViewCell")
+        self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,28 +32,26 @@ class HomeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
     }
 
-    /*
-     
-     */
     
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("HomeTableViewCell", forIndexPath: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return 380
+    }
 
     /*
     // Override to support conditional editing of the table view.
