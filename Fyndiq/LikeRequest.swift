@@ -17,9 +17,9 @@ struct LikeRequest:APIRquest {
         self.likeItem = likeItem
     }
     
-    var endPoint: String{
+    var endPoint: NSURL{
         get{
-            return "http://fyndswipenapi-­01.fyndiq.com/interview/products"
+            return NSURL(string:"http://fyndswipenapi-­01.fyndiq.com/interview/products")!
         }
     }
     

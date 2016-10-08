@@ -10,10 +10,16 @@ import Foundation
 
 struct HomeRequest:APIRquest{
     
-    var endPoint: String{
+    
+    var endPoint: NSURL{
         get{
-            return "http://fyndswipenapi-­01.fyndiq.com/interview/products"
-        }
+            
+            let s = "http://fyndswipenapi-­01.fyndiq.com/interview/products"
+            if let str = s.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLFragmentAllowedCharacterSet()),let url = NSURL(string:str){
+                return url
+            }
+            return NSURL(string: "http://Google.com")!
+           }
     }
     
     var method: Method{

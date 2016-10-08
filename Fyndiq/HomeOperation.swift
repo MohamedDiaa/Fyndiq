@@ -10,6 +10,51 @@ import UIKit
 
 class HomeOperation {
 
+    let apiRequest:APIRquest
+  
+    init(){
+        
+        self.apiRequest = HomeRequest()
+    }
+
+    func start(completion:([Product] -> Void)){
+        
+        let request = NSMutableURLRequest(URL: apiRequest.endPoint)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPMethod = "GET"
+        
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+         
+            do{
+                if let data = data ,let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [[String :Any]]
+                    {
+                        print(json)
+                        var productsList = [Product]()
+                        for item in json{
+                            let image = item["image"] as? String
+                            let name = item["name"] as? String
+                            let id = item["id"] as? Int
+                            
+                            if let image = image ,let imageURL = NSURL(string:image),let name = name , let id = id{
+                                
+                                let product = Product(id: id, image: imageURL, name: name, status: Status.none)
+                                
+                                productsList.append(product)
+                            }
+                        }
+                        completion(productsList)
+                }
+            }catch{
+            
+            }
+            
+        }
+
+        task.resume()
+    }
+    
 }
 
 

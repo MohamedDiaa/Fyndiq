@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
-        
+    
+    var products:[Product]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,12 @@ class HomeTableViewController: UITableViewController {
         let nib = UINib(nibName: "HomeTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "HomeTableViewCell")
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
-
+        
+        let homeOp = HomeOperation()
+        homeOp.start { (products) in
+            self.products = products
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,16 +43,26 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        
+        if let products = self.products
+        {
+            return products.count
+        }
+        return 0
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeTableViewCell", forIndexPath: indexPath)
-
+       
+        if let cell = tableView.dequeueReusableCellWithIdentifier("HomeTableViewCell", forIndexPath: indexPath) as? HomeTableViewCell ,let products = self.products where products.count > indexPath.row{
+            let p = products[indexPath.row]
+            cell.product = p
+            
+            return cell
+        }
         // Configure the cell...
 
-        return cell
+        return UITableViewCell()
     }
     
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

@@ -156,6 +156,7 @@
 		D9B21C8E1DA92B0C00620953 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D9B21CAD1DA9432D00620953 /* Operation */,
 				D9B21CA81DA93D6400620953 /* Item */,
 				D9B21CA11DA93BBB00620953 /* Requests */,
 				D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */,
@@ -207,6 +208,13 @@
 				D9B21CAB1DA93DC800620953 /* LikeItem.swift */,
 			);
 			name = Item;
+			sourceTree = "<group>";
+		};
+		D9B21CAD1DA9432D00620953 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Operation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

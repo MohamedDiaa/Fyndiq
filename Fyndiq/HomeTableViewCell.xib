@@ -40,6 +40,11 @@
                     <constraint firstItem="ECQ-Vq-OIn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="vJM-Ab-htp"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="likeButton" destination="xQv-d4-vs4" id="CvJ-5U-XDK"/>
+                <outlet property="nameLabel" destination="hQy-2m-zgU" id="S80-0X-KOo"/>
+                <outlet property="productImgView" destination="ECQ-Vq-OIn" id="BKH-fR-HFg"/>
+            </connections>
             <point key="canvasLocation" x="312" y="341"/>
         </tableViewCell>
     </objects>

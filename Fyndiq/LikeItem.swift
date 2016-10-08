@@ -9,7 +9,7 @@
 import Foundation
 
 public enum Status {
-    case liked,disLiked
+    case liked,none
 }
 
 public struct LikeItem {
