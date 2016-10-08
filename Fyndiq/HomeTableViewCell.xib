@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="334" height="379"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQy-2m-zgU">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQy-2m-zgU">
                         <rect key="frame" x="18" y="8" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,6 +37,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="ECQ-Vq-OIn" secondAttribute="trailing" constant="10" id="eF2-Kj-IKm"/>
                     <constraint firstItem="xQv-d4-vs4" firstAttribute="top" secondItem="ECQ-Vq-OIn" secondAttribute="bottom" constant="2" id="jHS-gC-eUZ"/>
                     <constraint firstItem="xQv-d4-vs4" firstAttribute="leading" secondItem="hQy-2m-zgU" secondAttribute="leading" id="rsk-Pp-ASV"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hQy-2m-zgU" secondAttribute="trailing" constant="10" id="u8d-Ub-wp9"/>
                     <constraint firstItem="ECQ-Vq-OIn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="vJM-Ab-htp"/>
                 </constraints>
             </tableViewCellContentView>

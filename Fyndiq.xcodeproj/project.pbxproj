@@ -26,6 +26,8 @@
 		D9B21CA71DA93CF600620953 /* LikeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21CA61DA93CF600620953 /* LikeRequest.swift */; };
 		D9B21CAA1DA93D7900620953 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21CA91DA93D7900620953 /* Product.swift */; };
 		D9B21CAC1DA93DC800620953 /* LikeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B21CAB1DA93DC800620953 /* LikeItem.swift */; };
+		D9B21CAF1DA9616F00620953 /* fyndiq.json in Resources */ = {isa = PBXBuildFile; fileRef = D9B21CAE1DA9616F00620953 /* fyndiq.json */; };
+		D9B21CB11DA9676D00620953 /* Refrences.txt in Resources */ = {isa = PBXBuildFile; fileRef = D9B21CB01DA9676D00620953 /* Refrences.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		D9B21CA61DA93CF600620953 /* LikeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeRequest.swift; sourceTree = "<group>"; };
 		D9B21CA91DA93D7900620953 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		D9B21CAB1DA93DC800620953 /* LikeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeItem.swift; sourceTree = "<group>"; };
+		D9B21CAE1DA9616F00620953 /* fyndiq.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fyndiq.json; sourceTree = "<group>"; };
+		D9B21CB01DA9676D00620953 /* Refrences.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Refrences.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				D9B21C601DA92AFD00620953 /* AppDelegate.swift */,
-				D9B21C9F1DA93A1100620953 /* Helper.swift */,
+				D9B21CB21DA9677100620953 /* Helpers */,
 				D9B21C621DA92AFD00620953 /* ViewController.swift */,
 				D9B21C641DA92AFD00620953 /* Main.storyboard */,
 				D9B21C671DA92AFD00620953 /* Assets.xcassets */,
@@ -156,10 +160,10 @@
 		D9B21C8E1DA92B0C00620953 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D9B21CAE1DA9616F00620953 /* fyndiq.json */,
 				D9B21CAD1DA9432D00620953 /* Operation */,
 				D9B21CA81DA93D6400620953 /* Item */,
 				D9B21CA11DA93BBB00620953 /* Requests */,
-				D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -213,8 +217,18 @@
 		D9B21CAD1DA9432D00620953 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
+				D9B21C9C1DA92E0F00620953 /* HomeOperation.swift */,
 			);
 			name = Operation;
+			sourceTree = "<group>";
+		};
+		D9B21CB21DA9677100620953 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D9B21C9F1DA93A1100620953 /* Helper.swift */,
+				D9B21CB01DA9676D00620953 /* Refrences.txt */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,10 +335,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B21CB11DA9676D00620953 /* Refrences.txt in Resources */,
 				D9B21C931DA92B7000620953 /* HomeTableViewController.xib in Resources */,
 				D9B21C9B1DA92C3000620953 /* HomeAssets.xcassets in Resources */,
 				D9B21C6B1DA92AFD00620953 /* LaunchScreen.storyboard in Resources */,
 				D9B21C681DA92AFD00620953 /* Assets.xcassets in Resources */,
+				D9B21CAF1DA9616F00620953 /* fyndiq.json in Resources */,
 				D9B21C981DA92BB500620953 /* HomeTableViewCell.xib in Resources */,
 				D9B21C661DA92AFD00620953 /* Main.storyboard in Resources */,
 			);

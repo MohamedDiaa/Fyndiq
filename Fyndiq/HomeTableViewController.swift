@@ -26,8 +26,12 @@ class HomeTableViewController: UITableViewController {
         
         let homeOp = HomeOperation()
         homeOp.start { (products) in
+           
             self.products = products
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
         }
     }
 
@@ -54,7 +58,7 @@ class HomeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        
-        if let cell = tableView.dequeueReusableCellWithIdentifier("HomeTableViewCell", forIndexPath: indexPath) as? HomeTableViewCell ,let products = self.products where products.count > indexPath.row{
+        if let cell = tableView.dequeueReusableCellWithIdentifier("HomeTableViewCell") as? HomeTableViewCell ,let products = self.products where products.count > indexPath.row{
             let p = products[indexPath.row]
             cell.product = p
             
