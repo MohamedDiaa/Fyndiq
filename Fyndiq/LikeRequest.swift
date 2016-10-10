@@ -17,14 +17,14 @@ struct LikeRequest:APIRquest {
         self.likeItem = likeItem
     }
     
-    var endPoint: NSURL{
+    var endPoint: URL{
         get{
             
             let s = "http://fyndswipenapi-­01.fyndiq.com/interview/products"
-            if let str = s.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLFragmentAllowedCharacterSet()),let url = NSURL(string:str){
+            if let str = s.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed),let url = URL(string:str){
                 return url
             }
-            return NSURL(string: "http://Google.com")!
+            return URL(string: "http://Google.com")!
         }
     }
     
@@ -44,9 +44,9 @@ struct LikeRequest:APIRquest {
         get{
             switch(likeItem.status){
             case .liked:
-                return ["id":likeItem.product.id,"like":true]
+                return ["id":likeItem.product.id as AnyObject,"like":true as AnyObject]
             case .none:
-                return ["id":likeItem.product.id,"like":false]
+                return ["id":likeItem.product.id as AnyObject,"like":false as AnyObject]
             }
         }
     }

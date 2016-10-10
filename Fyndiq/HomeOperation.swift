@@ -18,19 +18,18 @@ class HomeOperation {
     }
 
     
-    func start(completion:([Product] -> Void)){
+    func start(_ completion:@escaping (([Product]) -> Void)){
         
-        let request = NSMutableURLRequest(URL: apiRequest.endPoint)
-        apiRequest.defaultHeader
+        let request = NSMutableURLRequest(url: apiRequest.endPoint as URL)
         request.setHttpHeader(apiRequest.defaultHeader)
-        request.HTTPMethod = apiRequest.method.rawValue
+        request.httpMethod = apiRequest.method.rawValue
         
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        
-        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        /*
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
 
             do{
-                if let data = data ,let json = try NSJSONSerialization.JSONObjectWithData(data, options: [.AllowFragments]) as? [[String:AnyObject]]{
+                if let data = data ,let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [[String:AnyObject]]{
                     
                     if let productList = self.parse(json){
                         
@@ -45,18 +44,18 @@ class HomeOperation {
                     completion(productList)
                 }
             }
-        }
+        }) 
 
         task.resume()
-        
+        */
     }
 
     func loadSavedFile()->[[String:AnyObject]]?{
         
-        let path = NSBundle.mainBundle().pathForResource("fyndiq.json", ofType: nil) ?? ""
-        let loadedData = NSData(contentsOfFile: path)
+        let path = Bundle.main.path(forResource: "fyndiq.json", ofType: nil) ?? ""
+        let loadedData = try? Data(contentsOf: URL(fileURLWithPath: path))
         do{
-            if let newLoadeddata = loadedData ,let json = try NSJSONSerialization.JSONObjectWithData(newLoadeddata, options: .AllowFragments) as? [[String:AnyObject]]{
+            if let newLoadeddata = loadedData ,let json = try JSONSerialization.jsonObject(with: newLoadeddata, options: .allowFragments) as? [[String:AnyObject]]{
                 
                 return json
             }
@@ -68,7 +67,7 @@ class HomeOperation {
         return nil
     }
 
-    func parse(json:[[String:AnyObject]]) -> [Product]?{
+    func parse(_ json:[[String:AnyObject]]) -> [Product]?{
     
     var productsList = [Product]()
     for item in json{
@@ -76,7 +75,7 @@ class HomeOperation {
         let name = item["name"] as? String
         let id = item["id"] as? Int
         
-        if let image = image ,let imageURL = NSURL(string:image),let name = name , let id = id{
+        if let image = image ,let imageURL = URL(string:image),let name = name , let id = id{
             
             let product = Product(id: id, image: imageURL, name: name, status: Status.none)
             

@@ -30,9 +30,9 @@ class HomeTableViewCell: UITableViewCell {
 
                 switch(p.status){
                 case .liked:
-                    self.likeButton.setTitle("UnLike", forState: UIControlState.Normal)
+                    self.likeButton.setTitle("UnLike", for: UIControlState())
                 case .none:
-                    self.likeButton.setTitle("Like", forState: UIControlState.Normal)
+                    self.likeButton.setTitle("Like", for: UIControlState())
                 }
             }
         }
@@ -43,26 +43,26 @@ class HomeTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    @IBAction func likePressed(sender:UIButton){
+    @IBAction func likePressed(_ sender:UIButton){
         if let p = self.product{
         
             switch(p.status){
             case .liked:
                 self.product?.status = .none
-                self.likeButton.setTitle("Like", forState: UIControlState.Normal)
+                self.likeButton.setTitle("Like", for: UIControlState())
 
                 let likeItem = LikeItem(product: p, status: .none)
                 self.startLikeOperation(likeItem)
             
             case .none:
                 self.product?.status = .liked
-                self.likeButton.setTitle("UnLike", forState: UIControlState.Normal)
+                self.likeButton.setTitle("UnLike", for: UIControlState())
                
                 let likeItem = LikeItem(product: p, status: .none)
                 self.startLikeOperation(likeItem)
@@ -70,7 +70,7 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
-    func startLikeOperation(likeItem:LikeItem){
+    func startLikeOperation(_ likeItem:LikeItem){
         let likeOp = LikeOperation(likeItem: likeItem)
         likeOp.start({ 
             

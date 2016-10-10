@@ -14,7 +14,7 @@ enum Method:String {
 
 protocol APIRquest{
     
-    var endPoint:NSURL{get}
+    var endPoint:URL{get}
     
     var headers:[String:AnyObject]?{get}
     

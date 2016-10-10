@@ -26,12 +26,12 @@ extension UIColor{
 extension UIImage {
     
     // Loads image asynchronously
-    class func loadFromURL(url: NSURL, callback: (UIImage)->()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
+    class func loadFromURL(_ url: URL, callback: @escaping (UIImage)->()) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
             
-            let imageData = NSData(contentsOfURL: url)
+            let imageData = try? Data(contentsOf: url)
             if let data = imageData {
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     if let image = UIImage(data: data) {
                         callback(image)
                     }
@@ -42,7 +42,7 @@ extension UIImage {
 }
 
 extension NSMutableURLRequest{
-    func setHttpHeader(header:[String:Any]){
+    func setHttpHeader(_ header:[String:Any]){
         
         for key in header.keys{
             if let body = header[key] as? String{

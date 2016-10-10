@@ -16,30 +16,32 @@ struct LikeOperation{
         self.apiRequest = LikeRequest(likeItem: likeItem)
     }
     
-    func start(completion:()->(),failure:()->()){
+    func start(_ completion:()->(),failure:()->()){
         
-        let request = NSMutableURLRequest(URL: apiRequest.endPoint)
+        let request = NSMutableURLRequest(url: apiRequest.endPoint as URL)
         //request.setHttpHeader(apiRequest.defaultHeader)
-        request.HTTPMethod = apiRequest.method.rawValue
+        request.httpMethod = apiRequest.method.rawValue
         
         do{
-            if let json = apiRequest.parameters as? AnyObject{
+            if let json = apiRequest.parameters{
                 print(json)
-                let body = try NSJSONSerialization.dataWithJSONObject(json, options: [])
-                request.HTTPBody = body
+                let body = try JSONSerialization.data(withJSONObject: json, options: [])
+                request.httpBody = body
             }
         }
         catch{
             
         }
         
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        
-        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+        /*
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
 
             print(response)
-        }
+        }) 
         task.resume()
+        */
     }
 
 }

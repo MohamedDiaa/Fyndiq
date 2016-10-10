@@ -11,7 +11,7 @@ import Foundation
 public struct Product {
     
     let id:Int
-    let image:NSURL
+    let image:URL
     let name:String
     
     var status:Status

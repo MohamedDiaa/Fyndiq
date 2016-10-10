@@ -21,22 +21,22 @@ class HomeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         let nib = UINib(nibName: "HomeTableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "HomeTableViewCell")
+        self.tableView.register(nib, forCellReuseIdentifier: "HomeTableViewCell")
         self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
         
-        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(spinner)
         spinner.startAnimating()
-        let c1 = NSLayoutConstraint(item: spinner, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0)
-        let c2 = NSLayoutConstraint(item: spinner, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
+        let c1 = NSLayoutConstraint(item: spinner, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0)
+        let c2 = NSLayoutConstraint(item: spinner, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 0.0)
         self.view.addConstraints([c1,c2])
         
         let homeOp = HomeOperation()
         homeOp.start { (products) in
             self.products = products
             //self.tableView.reloadData()
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
                 self.tableView.reloadData()
                 spinner.stopAnimating()
 
@@ -51,11 +51,11 @@ class HomeTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let products = self.products
         {
@@ -65,10 +65,10 @@ class HomeTableViewController: UITableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        if let cell = tableView.dequeueReusableCellWithIdentifier("HomeTableViewCell") as? HomeTableViewCell ,let products = self.products where products.count > indexPath.row{
-            let p = products[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as? HomeTableViewCell ,let products = self.products , products.count > (indexPath as NSIndexPath).row{
+            let p = products[(indexPath as NSIndexPath).row]
             cell.product = p
             
             return cell
@@ -78,7 +78,7 @@ class HomeTableViewController: UITableViewController {
         return UITableViewCell()
     }
     
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 380
     }

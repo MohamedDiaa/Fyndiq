@@ -11,14 +11,14 @@ import Foundation
 struct HomeRequest:APIRquest{
     
     
-    var endPoint: NSURL{
+    var endPoint: URL{
         get{
             
             let s = "http://fyndswipenapi-­01.fyndiq.com/interview/products"
-            if let str = s.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLFragmentAllowedCharacterSet()),let url = NSURL(string:str){
+            if let str = s.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed),let url = URL(string:str){
                 return url
             }
-            return NSURL(string: "http://Google.com")!
+            return URL(string: "http://Google.com")!
            }
     }
     
