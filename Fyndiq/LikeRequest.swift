@@ -21,7 +21,7 @@ struct LikeRequest:APIRquest {
         get{
             
             let s = "http://fyndswipenapi-­01.fyndiq.com/interview/products"
-            if let str = s.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed),let url = URL(string:str){
+            if let url = URL(string:s){
                 return url
             }
             return URL(string: "http://Google.com")!

@@ -41,8 +41,8 @@ extension UIImage {
     }
 }
 
-extension NSMutableURLRequest{
-    func setHttpHeader(_ header:[String:Any]){
+extension URLRequest{
+    mutating func setHttpHeader(_ header:[String:Any]){
         
         for key in header.keys{
             if let body = header[key] as? String{

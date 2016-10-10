@@ -18,7 +18,7 @@ struct LikeOperation{
     
     func start(_ completion:()->(),failure:()->()){
         
-        let request = NSMutableURLRequest(url: apiRequest.endPoint as URL)
+        var request = URLRequest(url: apiRequest.endPoint as URL)
         //request.setHttpHeader(apiRequest.defaultHeader)
         request.httpMethod = apiRequest.method.rawValue
         
@@ -32,16 +32,13 @@ struct LikeOperation{
         catch{
             
         }
-        
-        /*
         let session = URLSession(configuration: URLSessionConfiguration.default)
-
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
 
             print(response)
         }) 
         task.resume()
-        */
+        
     }
 
 }

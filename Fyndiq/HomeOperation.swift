@@ -20,14 +20,15 @@ class HomeOperation {
     
     func start(_ completion:@escaping (([Product]) -> Void)){
         
-        let request = NSMutableURLRequest(url: apiRequest.endPoint as URL)
+        var request = URLRequest(url: apiRequest.endPoint as URL)
         request.setHttpHeader(apiRequest.defaultHeader)
         request.httpMethod = apiRequest.method.rawValue
         
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        /*
+        
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
 
+            print(error?.localizedDescription)
             do{
                 if let data = data ,let json = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [[String:AnyObject]]{
                     
@@ -36,8 +37,8 @@ class HomeOperation {
                         completion(productList)
                     }
                 }
-            }catch let error as NSError {
-                print("json error: \(error.localizedDescription)")
+            }catch  {
+                //print("json error: \(error.localizedDescription)")
                 
                 if let productJson = self.loadSavedFile(),let productList = self.parse(productJson){
                     
@@ -47,7 +48,7 @@ class HomeOperation {
         }) 
 
         task.resume()
-        */
+        
     }
 
     func loadSavedFile()->[[String:AnyObject]]?{
